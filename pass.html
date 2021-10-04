@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>java script first programe</title>
+      </head>
+<body>
+<h1>Pass phrase by Varun Reddy Musku </h1>
+<h2>Getting input</h2>
+
+<form>
+    <label for="form1_age">Enter the secret phrase </label>
+    <input type ="password" id="secret_phrase" name="form1_age" min=10 max=50 step=2 value="Let me in"> <br>
+
+    <label for="form1_nick">Enter a phrase</label>
+    <input type ="text" id="phrase" name="form1_nick" autofocus> <br>
+
+    <input type="button" onclick="processPhrase()" value="Check the phrase">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+var correct=0
+var wrong=0
+
+function processPhrase (){
+    console.log("Getting form values")
+    secret= document.getElementById("secret_phrase").value
+    phrase= document.getElementById("phrase").value
+    confirmed = confirm("Are these the values? "+secret+" and "+phrase)
+    
+    omg = document.getElementById("result")
+    if(secret==phrase){
+
+         correct++;
+        alert("Access is allowed")
+        omg.innerHTML = "Correct"
+    } else {
+        wrong++;
+        alert("Access Denied")
+        omg.innerHTML = "Wrong"
+    }
+}
+</script>
+
+</body>
+</html> 
