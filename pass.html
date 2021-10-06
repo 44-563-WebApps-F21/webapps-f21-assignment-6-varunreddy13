@@ -1,49 +1,77 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>java script first programe</title>
-      </head>
+<head>
+    <title>JavaScript</title>
+</head>
 <body>
-<h1>Pass phrase by Varun Reddy Musku </h1>
-<h2>Getting input</h2>
+
+<h2>Pass phrase by Varun Reddy Musku Kumbham</h2>
+
 
 <form>
     <label for="form1_age">Enter the secret phrase </label>
-    <input type ="password" id="secret_phrase" name="form1_age" min=10 max=50 step=2 value="Let me in"> <br>
+    <input type ="password" id="form1_age" name="form1_age" min=10 max=50 step=2 value="Let me in"> <br>
 
     <label for="form1_nick">Enter a phrase</label>
-    <input type ="text" id="phrase" name="form1_nick" autofocus> <br>
+    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
 
     <input type="button" onclick="processPhrase()" value="Check the phrase">
 </form>
 
 
-<p id="result">This text will be replaced </p>
+<p id="result">This text will be replaced</p>
+<div>
+    <img onclick="newImage()" id="imagewere" src="./Animals/ukari.jpg" alt="Kangroo" width="200" height="200"/>
+</div>
 
-<script> 
-
-var correct=0
-var wrong=0
-
-function processPhrase (){
+<script>
+let correct = 0;
+let wrong = 0; 
+let usingimage = 1;
+function processPhrase(){
     console.log("Getting form values")
-    secret= document.getElementById("secret_phrase").value
-    phrase= document.getElementById("phrase").value
-    confirmed = confirm("Are these the values? "+secret+" and "+phrase)
-    
-    omg = document.getElementById("result")
-    if(secret==phrase){
-
-         correct++;
-        alert("Access is allowed")
-        omg.innerHTML = "Correct"
-    } else {
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    if(age==nick){
+        correct++;
+        alert("Access allowed");
+    }
+    if(age!=nick){
         wrong++;
-        alert("Access Denied")
-        omg.innerHTML = "Wrong"
+        alert("Access denied");
+    }
+
+    out = document.getElementById("result")
+    if(age==nick){
+        out.innerHTML = correct;
+    } else {
+        out.innerHTML = wrong;   
     }
 }
+function newImage(){
+    switch(usingimage){
+       case 1:
+         var image = document.getElementById("imagewere");
+         image.src = "./Animals/sheep.jpg";
+           usingimage++;
+           break; 
+        case 2:
+         var image = document.getElementById("imagewere");
+         image.src = "./Animals/maltese-1.jpg";
+           usingimage++;
+           break; 
+        case 3:
+         var image = document.getElementById("imagewere");
+         image.src = "./Animals/ukari.jpg";
+           usingimage++;
+           break; 
+        case 4:
+         usingimage = 1;
+         break;   
+    }  
+}
 </script>
+
 
 </body>
 </html> 
