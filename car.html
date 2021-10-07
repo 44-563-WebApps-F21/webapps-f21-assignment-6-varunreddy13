@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Car Page</title>
+  </head>
+  <body>
+    <h2>Varun Reddy Musku orders a car</h2>
+    <form>
+      <input type="checkbox" name="electric" id="electric" />  <label for="electric"> electric</label><br />
+      <input type="checkbox" name="ac" id="ac" /> <label for="ac">ac</label><br />
+      <input type="checkbox" name="gps" id="gps" /> <label for="gps">gps</label><br /><br />
+      <input type="button" onclick="orderCar()" value="Order a car" />
+    </form>
+    <div style="display: flex">  <p id="result3">This text will be replaced</p>   </div>
+    <script>
+      function orderCar() {
+        var my_car = {};
+        var electricvalue = false;var accvalue = false; var gpsvalue = false;
+        var electriccheckbox = document.getElementById("electric"); var accheckbox = document.getElementById("ac"); var gpscheckbox = document.getElementById("gps");
+        out = document.getElementById("result3");
+        if (electriccheckbox.checked) {
+          electricvalue = true;
+        }
+        if (accheckbox.checked) {
+          accvalue = true;
+        }
+        if (gpscheckbox.checked) {
+          gpsvalue = true;
+        }
+        my_car = {
+          electric: electricvalue, ac: accvalue,gps: gpsvalue,
+        };
+        out.innerHTML = JSON.stringify(my_car);
+      }
+    </script>
+    <form>
+      <label style="font-size: 20px" for="pwd">Enter a property </label>  <input   style="margin-left: 90px"    type="text"   id="color"  name="color"   /><br /><br />
+      <label style="font-size: 20px" for="phrase">Enter a value</label>
+      <input style="margin-left: 45px" type="text"   id="property" name="property"   /><br />  <br /><br />
+      <input type="button" onclick="updateCar()" value="Update the car" />
+    </form>
+    <div style="display: flex"> <p id="result5">This text will be replaced</p>  </div>
+    <script>
+      function updateCar() {
+        var my_car = {};
+        keyvalue = document.getElementById("color").value;
+        propertyvalue = document.getElementById("property").value;
+        alert(keyvalue);
+        out = document.getElementById("result5");
+        my_car[keyvalue] = propertyvalue;
+        out.innerHTML = JSON.stringify(my_car);
+      }
+    </script>
+  </body>
+</html>
