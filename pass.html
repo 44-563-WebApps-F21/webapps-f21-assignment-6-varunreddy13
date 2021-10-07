@@ -1,78 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JavaScript</title>
+<title> JavaScript First Programe </title>
 </head>
 <body>
 
 <h2>Pass phrase by Varun Reddy Musku</h2>
 
-
 <form>
-    <label for="form1_age">Enter the secret phrase </label>
-    <input type ="password" id="form1_age" name="form1_age" min=10 max=50 step=2 value="Let me in"> <br>
+    <label for="secret phrase">Enter the secret phrase </label>
+    <input type ="password" id="secret phrase" name="form1_spValue"  min=10 max=50 step=2 value="Let me in"> <br><br>
+    
+    <label for="phrase">Enter a phrase </label>
+    <input type ="text" id="phrase" name="form1_pCheck" autofocus > <br><br>
 
-    <label for="form1_nick">Enter a phrase</label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
-
-    <input type="button" onclick="processPhrase()" value="Check the phrase">
+    <input type="button" onclick="processPhrase()" value ="Check the phrase">
 </form>
 
 
-<p id="result">This text will be replaced</p>
-<div>
-    <img onclick="newImage()" id="imagewere" src="./Animals/ukari.jpg" alt="Kangroo" width="200" height="200"/>
-</div>
+<p id="result"></p> 
+<br><br>
 
-<script>
-let correct = 0;
-let wrong = 0; 
-let usingimage = 1;
-function processPhrase(){
+
+<script> 
+var correct =0,wrong=0;
+
+function processPhrase (){
     console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    if(age==nick){
-        correct++;
-        alert("Access allowed");
-    }
-    if(age!=nick){
-        wrong++;
-        alert("Access denied");
-    }
-
+    spValue = document.getElementById("secret phrase").value 
+    pCheck = document.getElementById("phrase").value
+    confirmed = confirm("Are these the values? "+spValue+" and "+pCheck)
+    
+    
     out = document.getElementById("result")
-    if(age==nick){
-        out.innerHTML = correct;
+    if(spValue===pCheck){
+        correct = correct+1;
+       
+      alert("Access allowed")
     } else {
-        out.innerHTML = wrong;   
+        wrong = wrong+1;
+        
+    alert("Access denied")
     }
+    out.innerHTML="correct count:" +correct+ '<br>' +  "wrong count:" +wrong ; 
 }
-function newImage(){
 
-    switch(usingimage){
-       case 1:
-         var image = document.getElementById("imagewere");
-         image.src = "./Animals/sheep.jpg";
-           usingimage++;
-           break; 
-        case 2:
-         var image = document.getElementById("imagewere");
-         image.src = "./Animals/maltese-1.jpg";
-           usingimage++;
-           break; 
-        case 3:
-         var image = document.getElementById("imagewere");
-         image.src = "./Animals/ukari.jpg";
-           usingimage++;
-           break; 
-        case 4:
-         usingimage = 1;
-         break;   
-    }  
-}
 </script>
 
+<br> <br>
+
+<div class = "container"> 
+    <img id="maltese" src="./Animals/maltese-1.jpg" width="200" height="200" alt = "Picture of maltese" onclick="newImage()">
+    </div>
+
+
+<script>
+
+var usingImage=1;
+function newImage(){
+Image= document.getElementById("maltese")
+
+switch (usingImage)
+    {
+    case 1 : Image.src = "./Animals/sheep.jpg"
+               usingImage = usingImage +1;
+               break;
+    
+    case 2 : Image.src = "./Animals/ukari.jpg"
+               usingImage = usingImage +1;
+               break;
+
+    case 3  : Image.src = "./Animals/maltese-1.jpg"
+               usingImage = usingImage +1;
+               break;
+    }
+
+}
+
+</script>
 
 </body>
 </html> 

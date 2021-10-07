@@ -45,9 +45,9 @@
         for(var i=1;i<=exponent;i++){
             result +=  Math.pow(base,i) + " ";
         }
-        varun =document.getElementById("resultValue")
-       // out = document.getElementById("resultValue")
-        varun.innerHTML = "Powers of "+ base + " are: " + result;
+        
+        out = document.getElementById("resultValue")
+        out.innerHTML = "Powers of "+ base + " are: " + result;
     }
     </script>
 
@@ -60,6 +60,7 @@
     times = document.getElementById("rg1_times").checked
     divide = document.getElementById("rg1_divide").checked
     result = document.getElementById("radioButtonResult")
+     
 
     if (plus)
     result.innerHTML = +base + +exponent
